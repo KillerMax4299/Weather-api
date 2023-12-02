@@ -50,7 +50,7 @@ async function weather(q) {
     `https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=${process.env.API_KEY}&units=metric`
   );
 
-  const keysToKeep = ["weather", "main", "visibility","name","wind"];
+  const keysToKeep = ["weather", "main", "visibility","name","wind","sys"];
 
   const filteredData = Object.fromEntries(
     Object.entries(data)
