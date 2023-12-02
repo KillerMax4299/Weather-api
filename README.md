@@ -35,7 +35,7 @@
   }
   ```
 
-  - [`/getforecast/:city`]("https://weather-api-phisix.vercel.app/getforecast/") ( Current weather )
+- [`/getforecast/:city`]("https://weather-api-phisix.vercel.app/getforecast/") ( 5 day weather forecast )
 
   example: [`/getforecast/kolkata`](https://weather-api-phisix.vercel.app/getforecast/kolkata)
 
@@ -78,10 +78,10 @@
         },
         "dt_txt": "2023-12-02 18:00:00"
       },
-      {}, //9 items 
       {}, //9 items
       {}, //9 items
-      {}  //9 items
+      {}, //9 items
+      {} //9 items
     ],
     "location": "Kolkata, IN",
     "sunrise": "2 Dec 2023, 06:00:22 am IST",
