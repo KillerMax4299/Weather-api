@@ -53,7 +53,24 @@ async function weather(q) {
   const keysToKeep = ["weather", "main", "visibility","name","wind"];
 
   const filteredData = Object.fromEntries(
-    Object.entries(data).filter(([key]) => keysToKeep.includes(key))
+    Object.entries(data)
+      .map(([key, value]) => {
+        if (keysToKeep.includes(key)) {
+          if (key === "main" && typeof value === "object") {
+            // Filtering the "main" nested object
+            const mainKeysToKeep = ["temp", "humidity", "pressure"];
+            const filteredMain = Object.fromEntries(
+              Object.entries(value).filter(([nestedKey]) =>
+                mainKeysToKeep.includes(nestedKey)
+              )
+            );
+            return [key, filteredMain];
+          }
+          return [key, value];
+        }
+        return null; // Exclude keys not in keysToKeep
+      })
+      .filter(Boolean) // Remove null entries from map
   );
   return filteredData
 }
