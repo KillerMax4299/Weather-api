@@ -35,7 +35,7 @@
   }
   ```
 
-- [`/getforecast/:city`]("https://weather-api-phisix.vercel.app/getforecast/") ( 5 day weather forecast )
+- [`/getforecast/:city`]("https://weather-api-phisix.vercel.app/getforecast/") ( *5 day weather forecast* )
 
   example: [`/getforecast/kolkata`](https://weather-api-phisix.vercel.app/getforecast/kolkata)
 
