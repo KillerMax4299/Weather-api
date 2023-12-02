@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-async function apicall(q) {
+async function forecast(q) {
   const { data } = await axios.get(
     `https://api.openweathermap.org/data/2.5/forecast?q=${q}&appid=${process.env.API_KEY}&units=metric`
   );
@@ -44,10 +44,22 @@ function convertUnixTimestampToIndianTime(unixTimestamp) {
   return formattedDate;
 }
 
-// Example Unix timestamp (replace this with your Unix timestamp)
+
+async function weather(q) {
+  const { data } = await axios.get(
+    `https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=${process.env.API_KEY}&units=metric`
+  );
+
+  const keysToKeep = ["weather", "main", "visibility","name","wind"];
+
+  const filteredData = Object.fromEntries(
+    Object.entries(data).filter(([key]) => keysToKeep.includes(key))
+  );
+  return filteredData
+}
 
 
 
 module.exports = {
-  apicall,
+   forecast, weather
 };
